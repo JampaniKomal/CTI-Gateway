@@ -1,0 +1,112 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html>
+  <head>
+    <title>SIEM Threat Intelligence Dashboard</title>
+    <style>
+                    body {
+                        background-color: #0d1117;
+                        color: #c9d1d9;
+                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        margin: 0;
+                        padding: 30px;
+                    }
+                    h1 {
+                        color: #58a6ff;
+                        text-align: center;
+                        border-bottom: 2px solid #30363d;
+                        padding-bottom: 15px;
+                        margin-bottom: 30px;
+                    }
+                    .ioc-card {
+                        background-color: #161b22;
+                        border: 1px solid #30363d;
+                        border-radius: 8px;
+                        padding: 20px;
+                        margin-bottom: 20px;
+                        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+                    }
+                    .severity-CRITICAL { color: #f85149; font-weight: bold; }
+                    .severity-HIGH { color: #d29922; font-weight: bold; }
+                    .severity-MEDIUM { color: #58a6ff; font-weight: bold; }
+                    .severity-LOW { color: #3fb950; font-weight: bold; }
+                    .ioc-header {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        border-bottom: 1px solid #21262d;
+                        padding-bottom: 10px;
+                        margin-bottom: 15px;
+                    }
+                    .ioc-id {
+                        font-size: 1.4em;
+                        font-weight: bold;
+                        color: #ff7b72;
+                    }
+                    .ioc-type {
+                        background-color: #238636;
+                        color: #ffffff;
+                        padding: 4px 10px;
+                        border-radius: 12px;
+                        font-size: 0.9em;
+                        font-weight: bold;
+                    }
+                    .ioc-desc {
+                        line-height: 1.6;
+                        margin-top: 10px;
+                        font-size: 1.05em;
+                    }
+                    .ioc-meta {
+                        font-size: 0.9em;
+                        color: #8b949e;
+                        margin-top: 15px;
+                        background-color: #0d1117;
+                        padding: 10px;
+                        border-radius: 4px;
+                    }
+                </style>
+  </head>
+  <body>
+    <h1>SIEM Threat Intelligence Dashboard</h1>
+    <div class="container">
+      <div class="ioc-card">
+        <div class="ioc-header">
+          <span class="ioc-id">CVE-2026-12345</span>
+          <span class="ioc-type">Vulnerability</span>
+        </div>
+        <div>
+          <span>Severity: </span>
+          <span class="severity-CRITICAL">CRITICAL</span>
+        </div>
+        <div class="ioc-desc">Critical remote code execution vulnerability in ServiceX.</div>
+        <div class="ioc-meta"><strong>Published:</strong>2026-07-28T10:00:00Z | 
+                                <strong>Source:</strong>NVD</div>
+      </div>
+      <div class="ioc-card">
+        <div class="ioc-header">
+          <span class="ioc-id">192.168.1.100</span>
+          <span class="ioc-type">MaliciousIP</span>
+        </div>
+        <div>
+          <span>Severity: </span>
+          <span class="severity-HIGH">HIGH</span>
+        </div>
+        <div class="ioc-desc">Known malicious IP address communicating with botnets.</div>
+        <div class="ioc-meta"><strong>Published:</strong>2026-07-28T11:30:00Z | 
+                                <strong>Source:</strong>AlienVault OTX</div>
+      </div>
+      <div class="ioc-card">
+        <div class="ioc-header">
+          <span class="ioc-id">5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</span>
+          <span class="ioc-type">FileHash</span>
+        </div>
+        <div>
+          <span>Severity: </span>
+          <span class="severity-CRITICAL">CRITICAL</span>
+        </div>
+        <div class="ioc-desc">SHA-256 hash of a known ransomware payload.</div>
+        <div class="ioc-meta"><strong>Published:</strong>2026-07-27T15:45:00Z | 
+                                <strong>Source:</strong>VirusTotal</div>
+      </div>
+    </div>
+  </body>
+</html>
