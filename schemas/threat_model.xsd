@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           targetNamespace="http://ctigateway.example.com/threat"
+           xmlns="http://ctigateway.example.com/threat"
+           elementFormDefault="qualified">
+
+    <!-- Root Element -->
+    <xs:element name="ThreatReport">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Indicators">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Indicator" type="IndicatorType" maxOccurs="unbounded" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Complex Type for Indicator -->
+    <xs:complexType name="IndicatorType">
+        <xs:sequence>
+            <xs:element name="ID" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Unique identifier, e.g., CVE-2026-12345 or an IP address.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Type">
+                <xs:annotation>
+                    <xs:documentation>The type of IoC: Vulnerability, MaliciousIP, FileHash, etc.</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Vulnerability"/>
+                        <xs:enumeration value="MaliciousIP"/>
+                        <xs:enumeration value="FileHash"/>
+                        <xs:enumeration value="MaliciousURL"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Severity" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="LOW"/>
+                        <xs:enumeration value="MEDIUM"/>
+                        <xs:enumeration value="HIGH"/>
+                        <xs:enumeration value="CRITICAL"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Description" type="xs:string"/>
+            <xs:element name="PublishedDate" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="Source" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

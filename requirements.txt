@@ -1,0 +1,4 @@
+spyne==2.14.0
+lxml==5.1.0
+werkzeug==3.0.1
+requests==2.31.0
