@@ -40,4 +40,24 @@ This project is a fully functional SOAP-based web service that aggregates real-t
 4. The WSDL will be accessible at: `http://127.0.0.1:8000/?wsdl`
 
 ## Client Testing
-You can test the SOAP endpoint using **Postman** or **SoapUI** by creating a new SOAP request and pointing it to the WSDL URL. You can invoke methods like `GetLatestThreatsXML` and `GetThreatDashboardHTML`.
+
+You have two easy ways to test this SOAP web service:
+
+### Option 1: Using the included Python Test Client (Easiest)
+We have included a built-in SOAP client (`test_client.py`) so you don't need to install any external software.
+1. Make sure your server is running (`python app.py`) in one terminal.
+2. Open a second terminal, activate the virtual environment, and run:
+   ```bash
+   python test_client.py
+   ```
+3. The script will send a SOAP Request to the server, and the server will respond with the transformed HTML dashboard. 
+4. The script automatically saves the result to `dashboard_output.html`. Double-click this file to view the SIEM dashboard in your browser!
+
+### Option 2: Using SoapUI
+If you want to test it like a true Enterprise developer using **SoapUI**:
+1. Open **SoapUI**.
+2. Click **New SOAP Project**.
+3. In the "Initial WSDL" field, paste our server's WSDL URL: `http://127.0.0.1:8000/?wsdl`
+4. Click OK. SoapUI will automatically read the WSDL and generate sample requests for `GetLatestThreatsXML` and `GetThreatDashboardHTML`.
+5. Expand `GetThreatDashboardHTML`, open `Request 1`, and click the green **Play** button in the top left corner of the request window to send the SOAP envelope.
+6. The raw XML or transformed HTML response will appear on the right side of your screen!
