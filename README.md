@@ -59,5 +59,9 @@ If you want to test it like a true Enterprise developer using **SoapUI**:
 2. Click **New SOAP Project**.
 3. In the "Initial WSDL" field, paste our server's WSDL URL: `http://127.0.0.1:8000/?wsdl`
 4. Click OK. SoapUI will automatically read the WSDL and generate sample requests for `GetLatestThreatsXML` and `GetThreatDashboardHTML`.
-5. Expand `GetThreatDashboardHTML`, open `Request 1`, and click the green **Play** button in the top left corner of the request window to send the SOAP envelope.
-6. The raw XML or transformed HTML response will appear on the right side of your screen!
+5. Expand the folder named **Application**.
+6. Expand `GetThreatDashboardHTML`, open `Request 1`, and click the green **Play** button in the top left corner of the request window to send the SOAP envelope.
+7. The raw XML or transformed HTML response will appear on the right side of your screen!
+
+### Option 3: Using Postman
+You can also use **Postman** by creating a new `POST` request to `http://127.0.0.1:8000/`. Go to the Body tab, select `raw` and `XML`, paste the SOAP Envelope, and hit Send.
